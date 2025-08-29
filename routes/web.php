@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::controller(UsuarioController::class)->middleware('auth')->group(function () {
+    Route::get('/lista_usuarios', 'lista_usuarios')->name('lista_usuarios');
+    Route::post('/crear_usuario',  'crear_usuario')->name('crear_usuario');
+    Route::post('/usuario-rol/{id}',  'asignar_rol')->name('asignar_rol');
+});
+
+Route::resource('/roles', RoleController::class)->names('roles');
