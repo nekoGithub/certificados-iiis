@@ -8,12 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Estudiante extends Model
 {
     use HasFactory;
+
+    protected $table = 'estudiantes';
     protected $fillable = [
-        'nombre','apellido','carnet','ru','correo','telefono'
+        'nombres',
+        'apellidos',
+        'ci',
+        'email',
+        'telefono',
+        'codigo_certificado',
+        'fecha_emision',
+        'estado'
     ];
 
-    public function certificados() {
-        return $this->belongsToMany(Certificado::class, 'certificado_estudiante')
-                    ->withTimestamps();
-    }
+    protected $casts = [
+        'fecha_emision' => 'date'
+    ];
 }

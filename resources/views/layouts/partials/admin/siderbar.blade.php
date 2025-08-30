@@ -1,18 +1,25 @@
 @php
-    $links = [
-        [
-            'icon' => 'fa-solid fa-gauge-high',
-            'name' => 'Panel Control',
-            'route' => route('admin.dashboard'),
-            'active' => request()->routeIs('admin.dashboard'),
-        ],
-        [
-            'icon' => 'fa-solid fa-user',
-            'name' => 'Perfil',
-            'route' => route('admin.perfil'),
-            'active' => request()->routeIs('admin.perfil'),
-        ],
-    ];
+ $links = [
+    [
+        'icon' => 'fa-solid fa-gauge-high', // Dashboard
+        'name' => 'Panel Control',
+        'route' => route('admin.dashboard'),
+        'active' => request()->routeIs('admin.dashboard'),
+    ],
+    [
+        'icon' => 'fa-solid fa-id-badge', // Perfil
+        'name' => 'Perfil',
+        'route' => route('admin.perfil'),
+        'active' => request()->routeIs('admin.perfil'),
+    ],
+    [
+        'icon' => 'fa-solid fa-users', // Estudiantes
+        'name' => 'Estudiantes',
+        'route' => route('listar_estudinates'),
+        'active' => request()->routeIs('listar_estudinates'),
+    ],
+];
+
 @endphp
 
 @php
