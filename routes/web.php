@@ -39,12 +39,9 @@ Route::controller(UsuarioController::class)->middleware('auth')->group(function 
 
 Route::controller(EstudianteController::class)->middleware('auth')->group(function (){
     Route::get('/listar_estudinates', 'listar_estudinates')->name('listar_estudinates');
+    Route::post('/estudiantes', 'crear_estudiante')->name('estudiantes.store');
+    Route::put('/estudiantes/{id}', 'actualizar_estudiante')->name('estudiantes.update');
+    Route::delete('/estudiantes/{id}', 'eliminar_estudiante')->name('estudiantes.destroy');
 });
-
-// Rutas API para AJAX
-Route::post('/estudiantes', [EstudianteController::class, 'store'])->name('estudiantes.store');
-Route::get('/estudiantes/{id}', [EstudianteController::class, 'show'])->name('estudiantes.show');
-Route::put('/estudiantes/{id}', [EstudianteController::class, 'update'])->name('estudiantes.update');
-Route::delete('/estudiantes/{id}', [EstudianteController::class, 'destroy'])->name('estudiantes.destroy');
 
 Route::resource('/roles', RoleController::class)->names('roles');

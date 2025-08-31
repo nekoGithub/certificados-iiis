@@ -281,6 +281,7 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
@@ -308,6 +309,35 @@
         })
     }
 </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function eliminarEstudiante(id) {
+            Swal.fire({
+                title: '¿Seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete(`/estudiantes/${id}`)
+                        .then(res => {
+                            Swal.fire('Eliminado!', res.data.message, 'success');
+                            // Recarga la página o elimina la fila de la tabla
+                            setTimeout(() => location.reload(), 1000);
+                        })
+                        .catch(err => {
+                            Swal.fire('Error!', err.response.data.message, 'error');
+                        });
+                }
+            })
+        }
+    </script>
+
 
 
 </x-admin-layout>
