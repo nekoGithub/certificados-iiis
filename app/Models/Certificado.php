@@ -11,16 +11,23 @@ class Certificado extends Model
 
     protected $table = 'certificados';
     protected $fillable = [
-        'foto','nombre','descripcion','estado',
-        'fecha_inicio','fecha_fin','posicion_id'
+        'foto',
+        'nombre',
+        'descripcion',
+        'estado',
+        'fecha_inicio',
+        'fecha_fin',
+        'posicion_id'
     ];
 
-    public function posicion() {
-        return $this->belongsTo(Posicion::class);
+    public function posicion()
+    {
+        return $this->hasOne(Posicion::class);
     }
 
-    public function estudiantes() {
+    public function estudiantes()
+    {
         return $this->belongsToMany(Estudiante::class, 'certificado_estudiante')
-                    ->withTimestamps();
+            ->withTimestamps();
     }
 }

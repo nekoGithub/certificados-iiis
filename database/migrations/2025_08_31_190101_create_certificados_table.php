@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('fecha_inicio')->nullable();
             $table->date('fecha_fin')->nullable();
             
-            $table->foreignId('posicion_id')->constrained('posiciones')->cascadeOnDelete();
+            
             $table->timestamps();
         });
     }

@@ -17,7 +17,10 @@ return new class extends Migration
             $table->integer('right')->nullable();
             $table->integer('bottom')->nullable();
             $table->integer('left')->nullable();
+
+            $table->foreignId('certificado_id')->constrained('certificados')->cascadeOnDelete();
             $table->timestamps();
+
         });
     }
 

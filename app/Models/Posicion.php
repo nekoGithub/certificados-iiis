@@ -9,9 +9,18 @@ class Posicion extends Model
 {
     use HasFactory;
     protected $table = 'posiciones';
-    protected $fillable = ['top', 'right', 'bottom', 'left'];
 
-    public function certificados() {
-        return $this->hasMany(Certificado::class);
+    protected $fillable = [
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'certificado_id',
+    ];
+
+
+    public function certificado()
+    {
+        return $this->belongsTo(Certificado::class);
     }
 }

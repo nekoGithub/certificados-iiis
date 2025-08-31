@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CertificadoController;
 use App\Http\Controllers\DashboardController;
+use App\Livewire\Certificados\ConfigurarCertificado;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -21,6 +24,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('perfil');
 });
 
+Route::get('certificados', [CertificadoController::class, 'index'])->name('certificados.index');
 
+Route::get('/certificados/{certificado}/configurar', ConfigurarCertificado::class)
+    ->name('certificados.configurar');
 
+Route::get('/certificados/{certificado}/generar-pdf', [CertificadoController::class, 'generarPDF'])
+    ->name('certificados.generar-pdf');
+
+Route::get('/certificados/{certificado}/preview-pdf', [CertificadoController::class, 'previewPDF'])
+    ->name('certificados.preview-pdf');
 
