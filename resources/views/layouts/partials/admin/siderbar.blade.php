@@ -9,10 +9,26 @@
         [
             'icon' => 'fa-solid fa-user',
             'name' => 'Perfil',
-            'route' => route('admin.perfil'), 
-            'active' => request()->routeIs('admin.perfil'), 
+            'route' => route('admin.perfil'),
+            'active' => request()->routeIs('admin.perfil'),
+        ],
+        [
+            'icon' => 'fa-solid fa-users', // Estudiantes
+            'name' => 'Estudiantes',
+            'route' => route('listar_estudinates'),
+            'active' => request()->routeIs('listar_estudinates'),
+        ],
+        [
+            'icon' => 'fa-solid fa-certificate', // Certificados
+            'name' => 'Certificados',
+            'route' => route('admin.certificados.index'),
+            'active' => request()->routeIs('admin.certificados.*'),
         ],
     ];
+@endphp
+
+@php
+    $isUsuariosActive = request()->routeIs('lista_usuarios') || request()->routeIs('roles.*');
 @endphp
 
 <aside id="logo-sidebar"
