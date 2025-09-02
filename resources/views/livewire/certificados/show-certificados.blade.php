@@ -69,15 +69,20 @@
                                     class="w-20 h-14 object-cover rounded shadow">
                             </td>
                             <td class="px-6 py-4">
-                                <span
-                                    class="px-2 py-1 text-xs font-semibold rounded 
-                                    {{ $item->estado == 'activo' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                <button wire:click="toggleEstado({{ $item->id }})"
+                                    class="px-2 py-1 text-xs font-semibold rounded
+            {{ $item->estado == 'activo'
+                ? 'bg-green-600 hover:bg-green-700 text-white'
+                : 'bg-red-600 hover:bg-red-700 text-white' }}">
                                     {{ ucfirst($item->estado) }}
-                                </span>
+                                </button>
                             </td>
+
                             <td class="px-6 py-4">{{ $item->fecha_inicio }}</td>
                             <td class="px-6 py-4">{{ $item->fecha_fin }}</td>
                             <td class="px-6 py-4 flex">
+
+
                                 <a wire:click="edit({{ $item }})"
                                     class="inline-flex items-center justify-center px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500 transition-colors">
                                     <i class="fa-solid fa-pen-to-square"></i>
@@ -208,5 +213,18 @@
                 });
             });
         </script>
+        <script>
+
+    Livewire.on('estadoActualizado', () => {
+    Swal.fire({
+        icon: "success",
+        title: "Estado actualizado",
+        showConfirmButton: false,
+        timer: 1500
+    });
+});
+        </script>
     @endpush
+
+
 </div>

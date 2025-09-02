@@ -98,7 +98,6 @@ class ShowCertificados extends Component
         ];
 
         $this->openEdit = true;
-
     }
 
 
@@ -137,6 +136,21 @@ class ShowCertificados extends Component
             $this->dispatch('certificadoDeleted');
         }
     }
+    public function toggleEstado($id)
+    {
+        $certificado = Certificado::findOrFail($id);
+
+        // Alternar estado
+        $certificado->estado = $certificado->estado === 'activo' ? 'inactivo' : 'activo';
+        $certificado->save();
+
+        // Refrescar listado
+        $this->loadCertificados();
+
+        // Notificación opcional
+        $this->dispatch('estadoActualizado');
+    }
+
 
     public function render()
     {

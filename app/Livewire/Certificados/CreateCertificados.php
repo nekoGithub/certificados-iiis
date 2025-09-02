@@ -74,4 +74,6 @@ class CreateCertificados extends Component
     {
         return view('livewire.certificados.create-certificados');
     }
+
+
 }

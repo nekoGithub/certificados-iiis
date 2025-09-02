@@ -104,7 +104,7 @@
                 <div id="nombre-preview"
                     class="absolute text-lg font-bold text-black bg-white bg-opacity-90 px-2 py-1 rounded shadow-lg border-2 border-red-500"
                     style="
-                        top: {{ (($top ?? 260) * 100) / 595 }}%; 
+                        top: {{ (($top ?? 260) * 100) / 595 }}%;
                         left: {{ (($left ?? 400) * 100) / 842 }}%;
                         transform: translate(-50%, -50%);
                         text-align: center;
@@ -143,11 +143,12 @@
 
             <!-- Botones de Prueba -->
             <div class="mt-6 space-y-2">
-                <a href="{{ route('admin.certificados.preview-pdf', $certificado->id) }}?nombre_estudiante={{ urlencode($nombreCompleto) }}"
+                <a href="{{ route('admin.certificados.preview-pdf', $certificado->id) }}?nombre_estudiante={{ urlencode($nombreCompleto) }}&top={{ $top ?? 260 }}&left={{ $left ?? 400 }}"
                     target="_blank"
                     class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded">
                     Ver PDF de Prueba
                 </a>
+
             </div>
         </div>
     </div>

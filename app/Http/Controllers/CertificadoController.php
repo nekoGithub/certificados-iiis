@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Certificado;
 use App\Services\CertificadoService;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CertificadoController extends Controller
 {
@@ -41,10 +42,12 @@ class CertificadoController extends Controller
         $pdf = $this->certificadoService->generarCertificadoPDF(
             $certificado,
             $nombreEstudiante,
-            $topDinamico,
-            $leftDinamico
+            $topDinamico + 60,
+            $leftDinamico - 140
         );
 
         return $pdf->stream("preview_certificado_{$certificado->id}.pdf");
     }
+
+
 }

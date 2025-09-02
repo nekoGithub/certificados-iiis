@@ -1,133 +1,1281 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="es">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto de Investigación - Ingeniería de Sistemas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        * {
+            font-family: 'Inter', sans-serif;
+        }
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #6366f1 50%, #8b5cf6 75%, #a855f7 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            100% {
+                transform: translateX(10px) translateY(10px);
+            }
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+        }
+
+        .morphing-card {
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .morphing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .morphing-card:hover::before {
+            left: 100%;
+        }
+
+        .morphing-card:hover {
+            transform: translateY(-20px) rotateX(5deg) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.8), 0 0 40px rgba(99, 102, 241, 0.4);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 20px rgba(99, 102, 241, 0.8), 0 0 40px rgba(99, 102, 241, 0.4);
+            }
+
+            to {
+                text-shadow: 0 0 30px rgba(139, 92, 246, 0.9), 0 0 60px rgba(139, 92, 246, 0.6);
+            }
+        }
+
+        .holographic-border {
+            position: relative;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+            padding: 2px;
+            border-radius: 12px;
+        }
+
+        .holographic-border::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: white;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .holographic-content {
+            position: relative;
+            z-index: 2;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .liquid-button {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .liquid-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .liquid-button:hover::before {
+            left: 100%;
+        }
+
+        .liquid-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .navbar-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-image {
+            transition: all 0.5s ease;
+            filter: brightness(0.8) contrast(1.2);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+            filter: brightness(1) contrast(1.3);
+        }
+
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: rotateY(360deg) scale(1.2);
+            color: #6366f1;
+        }
+
+        .pulse-ring {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #6366f1;
+            border-radius: 50%;
+            animation: pulseRing 2s cubic-bezier(0.25, 0, 0, 1) infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9));
+        }
+
+        .three-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .interactive-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="rgba(255,255,255,0.1)"></path></svg>') repeat-x;
+            animation: wave 10s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-50px);
+            }
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #6366f1;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #6366f1;
+            }
+        }
+
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            animation: matrixFall linear infinite;
+        }
+
+        @keyframes matrixFall {
+            to {
+                top: 100%;
+            }
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+            transform-origin: left;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-50 overflow-x-hidden">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navbar with Glass Effect -->
+    <nav class="navbar-glass fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center group cursor-pointer">
+                        <div class="relative">
+                            <i data-feather="cpu" class="h-8 w-8 text-indigo-600 tech-icon"></i>
+                            <div class="pulse-ring absolute inset-0"></div>
+                        </div>
+                        <span
+                            class="ml-2 text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">IIIS</span>
+                    </div>
                 </div>
-            @endif
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-indigo-600 font-medium relative group">
+                        Inicio
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 transition-all relative group">
+                        Investigación
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 transition-all relative group">
+                        Proyectos
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 transition-all relative group">
+                        Publicaciones
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 transition-all relative group">
+                        Contacto
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all group-hover:w-full"></span>
+                    </a>
 
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
+                    @if (Route::has('login'))
+
+                        @auth
+                            <a href="{{ url('/dashboard') }}"
+                                class="liquid-button bg-indigo-600 text-white px-6 py-2 rounded-full font-medium">
+                                Ingresar
+                            </a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Ingresar</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" href="{{ url('/dashboard') }}"
+                                    class="liquid-button bg-indigo-600 text-white px-6 py-2 rounded-full font-medium">
+                                    Registrarse
+                                </a>
+                            @endif
+                        @endauth
+
+                    @endif
+
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-500 hover:text-gray-900 focus:outline-none tech-icon">
+                        <i data-feather="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Advanced Effects -->
+    <section class="hero-gradient pt-32 pb-20 text-white interactive-bg relative min-h-screen flex items-center">
+        <div class="floating-particles" id="particlesContainer"></div>
+        <canvas class="three-canvas" id="threeCanvas"></canvas>
+        <div class="wave-animation"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="typing-animation mb-6">
+                        <h1 class="text-4xl md:text-6xl font-black glow-text">
+                            IIIS
+                            <br>
+                            <span class="text-yellow-300 inline-block transform hover:scale-105 transition-transform">
+                                Ingeniería de Sistemas
+                            </span>
+                        </h1>
+                    </div>
+                    <p class="text-xl mb-8 opacity-90 transform translate-x-0 transition-all duration-1000"
+                        data-aos="fade-up" data-aos-delay="500">
+                        🚀 Innovación, tecnología y desarrollo para construir el futuro de los sistemas computacionales.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up"
+                        data-aos-delay="700">
+                        <button
+                            class="liquid-button bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl transform hover:scale-105 transition-all group">
+                            <span class="flex items-center">
+                                ✨ Conoce más
+                                <i data-feather="arrow-right"
+                                    class="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform"></i>
+                            </span>
+                        </button>
+                        <button
+                            class="liquid-button border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition-all group">
+                            <i data-feather="play" class="inline mr-2 group-hover:scale-125 transition-transform"></i>
+                            Ver demo
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative group">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur-xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                            alt="Sistemas computacionales"
+                            class="relative rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-700 hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Stats Section -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="matrix-rain" id="matrixRain"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="p-8 group" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="stats-counter mb-4" data-count="15">0</div>
+                    <div class="text-gray-600 font-medium group-hover:text-indigo-600 transition-colors">Años de
+                        experiencia</div>
+                    <div
+                        class="w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-2 transform scale-0 group-hover:scale-100 transition-transform">
+                    </div>
+                </div>
+                <div class="p-8 group" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
+                    <div class="stats-counter mb-4" data-count="50">0</div>
+                    <div class="text-gray-600 font-medium group-hover:text-indigo-600 transition-colors">Proyectos
+                        completados</div>
+                    <div
+                        class="w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-2 transform scale-0 group-hover:scale-100 transition-transform">
+                    </div>
+                </div>
+                <div class="p-8 group" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
+                    <div class="stats-counter mb-4" data-count="200">0</div>
+                    <div class="text-gray-600 font-medium group-hover:text-indigo-600 transition-colors">Publicaciones
+                        científicas</div>
+                    <div
+                        class="w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-2 transform scale-0 group-hover:scale-100 transition-transform">
+                    </div>
+                </div>
+                <div class="p-8 group" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="800">
+                    <div class="stats-counter mb-4" data-count="30">0</div>
+                    <div class="text-gray-600 font-medium group-hover:text-indigo-600 transition-colors">Investigadores
+                    </div>
+                    <div
+                        class="w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-2 transform scale-0 group-hover:scale-100 transition-transform">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas with Holographic Cards -->
+    <section class="py-24 bg-gradient-to-br from-gray-50 to-indigo-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl font-black text-gray-900 mb-6">Áreas de Investigación</h2>
+                <div class="w-32 h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mx-auto rounded-full">
+                </div>
+                <p class="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">Exploramos las fronteras de la tecnología para
+                    crear soluciones innovadoras</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="holographic-border morphing-card" data-aos="fade-up">
+                    <div class="holographic-content">
+                        <div class="text-indigo-600 mb-6 flex justify-center">
+                            <div class="relative">
+                                <i data-feather="cpu" class="h-12 w-12 tech-icon"></i>
+                                <div
+                                    class="absolute inset-0 bg-indigo-600 rounded-full blur-xl opacity-20 scale-150 animate-pulse">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center">Inteligencia Artificial</h3>
+                        <p class="text-gray-600 text-center">Desarrollo de algoritmos avanzados de machine learning y
+                            deep learning para resolver problemas complejos del futuro.</p>
+                    </div>
                 </div>
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
+                <div class="holographic-border morphing-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="holographic-content">
+                        <div class="text-indigo-600 mb-6 flex justify-center">
+                            <div class="relative">
+                                <i data-feather="shield" class="h-12 w-12 tech-icon"></i>
+                                <div
+                                    class="absolute inset-0 bg-indigo-600 rounded-full blur-xl opacity-20 scale-150 animate-pulse">
                                 </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Documentation</h2>
-
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
                             </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center">Ciberseguridad</h3>
+                        <p class="text-gray-600 text-center">Investigación en protección de datos, análisis de
+                            vulnerabilidades y desarrollo de sistemas de seguridad de próxima generación.</p>
+                    </div>
+                </div>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                                    </svg>
+                <div class="holographic-border morphing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="holographic-content">
+                        <div class="text-indigo-600 mb-6 flex justify-center">
+                            <div class="relative">
+                                <i data-feather="cloud" class="h-12 w-12 tech-icon"></i>
+                                <div
+                                    class="absolute inset-0 bg-indigo-600 rounded-full blur-xl opacity-20 scale-150 animate-pulse">
                                 </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Laracasts</h2>
-
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
                             </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center">Computación en la Nube</h3>
+                        <p class="text-gray-600 text-center">Optimización de arquitecturas distribuidas y desarrollo de
+                            servicios escalables en entornos cloud híbridos.</p>
+                    </div>
+                </div>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                                    </svg>
+                <div class="holographic-border morphing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="holographic-content">
+                        <div class="text-indigo-600 mb-6 flex justify-center">
+                            <div class="relative">
+                                <i data-feather="database" class="h-12 w-12 tech-icon"></i>
+                                <div
+                                    class="absolute inset-0 bg-indigo-600 rounded-full blur-xl opacity-20 scale-150 animate-pulse">
                                 </div>
-
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
                             </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center">Big Data & Analytics</h3>
+                        <p class="text-gray-600 text-center">Procesamiento inteligente de grandes volúmenes de datos
+                            para extracción de conocimiento y predicciones avanzadas.</p>
+                    </div>
+                </div>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
-                                    </svg>
+                <div class="holographic-border morphing-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="holographic-content">
+                        <div class="text-indigo-600 mb-6 flex justify-center">
+                            <div class="relative">
+                                <i data-feather="wifi" class="h-12 w-12 tech-icon"></i>
+                                <div
+                                    class="absolute inset-0 bg-indigo-600 rounded-full blur-xl opacity-20 scale-150 animate-pulse">
                                 </div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center">IoT & Edge Computing</h3>
+                        <p class="text-gray-600 text-center">Sistemas embebidos y redes inteligentes de sensores para
+                            aplicaciones en ciudades inteligentes y Industry 4.0.</p>
+                    </div>
+                </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900">Vibrant Ecosystem</h2>
+                <div class="holographic-border morphing-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="holographic-content">
+                        <div class="text-indigo-600 mb-6 flex justify-center">
+                            <div class="relative">
+                                <i data-feather="bar-chart-2" class="h-12 w-12 tech-icon"></i>
+                                <div
+                                    class="absolute inset-0 bg-indigo-600 rounded-full blur-xl opacity-20 scale-150 animate-pulse">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-center">Visualización Inmersiva</h3>
+                        <p class="text-gray-600 text-center">Técnicas avanzadas de realidad virtual y aumentada para
+                            representación interactiva de información compleja.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
+    <!-- Featured Projects with Enhanced Effects -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl font-black text-gray-900 mb-6">Proyectos Destacados</h2>
+                <div class="w-32 h-2 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 mx-auto rounded-full">
+                </div>
+                <p class="text-xl text-gray-600 mt-6">Innovaciones que están transformando el mundo</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="project-card relative rounded-2xl overflow-hidden shadow-2xl group" data-aos="fade-right">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-20 group-hover:opacity-30 transition-opacity">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7ac11c50?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Proyecto IA" class="project-image w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <div class="flex items-center mb-3">
+                            <span
+                                class="bg-gradient-to-r from-green-400 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">🤖
+                                AI</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Sistema de Reconocimiento Facial Avanzado</h3>
+                        <p class="mb-4 opacity-90">Algoritmos de deep learning con precisión del 99.8% para
+                            identificación biométrica en tiempo real y detección de emociones.</p>
+                        <button
+                            class="flex items-center text-blue-300 hover:text-white transition-colors group-hover:translate-x-2 transform transition-transform">
+                            Ver detalles
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card relative rounded-2xl overflow-hidden shadow-2xl group" data-aos="fade-left">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-20 group-hover:opacity-30 transition-opacity">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                        alt="Proyecto Ciberseguridad" class="project-image w-full h-80 object-cover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <div class="flex items-center mb-3">
+                            <span
+                                class="bg-gradient-to-r from-red-400 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">🛡️
+                                Security</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Plataforma de Pentesting Automatizada</h3>
+                        <p class="mb-4 opacity-90">Herramientas de inteligencia artificial para pruebas de penetración
+                            y análisis de vulnerabilidades en tiempo real.</p>
+                        <button
+                            class="flex items-center text-red-300 hover:text-white transition-colors group-hover:translate-x-2 transform transition-transform">
+                            Ver detalles
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button
+                    class="liquid-button border-2 border-indigo-600 text-indigo-600 px-8 py-4 rounded-full font-semibold hover:bg-indigo-600 hover:text-white transition-all transform hover:scale-105 group">
+                    <i data-feather="grid" class="inline mr-2 group-hover:rotate-12 transition-transform"></i>
+                    Ver todos los proyectos
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Formulario para Generar Certificado -->
+    @foreach ($certificadosActivos as $certificado)
+        <section class="py-24 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 relative overflow-hidden">
+            <div class="max-w-3xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl font-black text-gray-900 mb-6">Generar Certificado</h2>
+                    <div
+                        class="w-32 h-2 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto rounded-full">
+                    </div>
+                    <p class="text-lg text-gray-600 mt-6">Completa los datos para crear tu certificado personalizado
+                    </p>
+                </div>
+
+                <form action="/generar-certificado" method="POST"
+                    class="bg-white shadow-xl rounded-2xl p-8 space-y-6" data-aos="fade-up">
+                    <!-- Nombre -->
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre del
+                            Participante</label>
+                        <input type="text" id="nombre" name="nombre" required
+                            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3"
+                            placeholder="Ej: Juan Alcachofa" />
+                    </div>
+
+                    <!-- Curso -->
+                    <div>
+                        <label for="curso" class="block text-sm font-medium text-gray-700">Nombre del Curso</label>
+                        <input type="text" id="curso" name="curso" required disabled
+                            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3"
+                            value="{{ $certificado->nombre }}" />
+                    </div>
+
+                    <!-- Fecha -->
+                    <div>
+                        <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha de Emisión</label>
+                        <input type="date" id="fecha" name="fecha" required disabled
+                            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3" />
+                    </div>
+
+                    <script>
+                        document.getElementById("fecha").value = new Date().toISOString().split("T")[0];
+                    </script>
+
+
+                    {{-- <!-- Instructor -->
+                <div>
+                    <label for="instructor" class="block text-sm font-medium text-gray-700">Nombre del
+                        Instructor</label>
+                    <input type="text" id="instructor" name="instructor"
+                        class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3" />
+                </div> --}}
+
+                    <!-- Botón -->
+                    <div class="text-center">
+                        <button type="submit"
+                            class="px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:opacity-90 transition duration-200">
+                            Generar Certificado
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    @endforeach
+
+
+
+    <!-- Enhanced Testimonials Section -->
+    <section class="py-24 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl font-black text-gray-900 mb-6">Lo Que Dicen Nuestros Colaboradores</h2>
+                <div class="w-32 h-2 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 mx-auto rounded-full">
+                </div>
+                <p class="text-xl text-gray-600 mt-6">Testimonios de quienes han trabajado con nosotros</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="zoom-in">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 space-x-1">
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-gray-500">5.0</span>
+                    </div>
+                    <blockquote class="text-gray-700 mb-6 text-lg italic">
+                        "El trabajo del instituto en inteligencia artificial ha revolucionado completamente nuestros
+                        procesos de análisis de datos. La precisión y velocidad son extraordinarias."
+                    </blockquote>
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Gutierrez"
+                                class="h-12 w-12 rounded-full object-cover ring-4 ring-white shadow-lg">
+                            <div
+                                class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white">
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Maria Gutierrez</div>
+                            <div class="text-sm text-gray-500 flex items-center">
+                                <i data-feather="briefcase" class="h-3 w-3 mr-1"></i>
+                                CEO, DataTech Solutions
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm sm:text-left">
-                        &nbsp;
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 space-x-1">
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-gray-500">5.0</span>
                     </div>
+                    <blockquote class="text-gray-700 mb-6 text-lg italic">
+                        "La colaboración con los investigadores nos ha permitido desarrollar soluciones de
+                        ciberseguridad que están años adelantadas a la competencia."
+                    </blockquote>
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Mendoza"
+                                class="h-12 w-12 rounded-full object-cover ring-4 ring-white shadow-lg">
+                            <div
+                                class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white">
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Carlos Mendoza</div>
+                            <div class="text-sm text-gray-500 flex items-center">
+                                <i data-feather="briefcase" class="h-3 w-3 mr-1"></i>
+                                CTO, SecureNet Industries
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-400 space-x-1">
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                            <i data-feather="star" class="h-5 w-5 fill-current"></i>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-gray-500">5.0</span>
+                    </div>
+                    <blockquote class="text-gray-700 mb-6 text-lg italic">
+                        "Los proyectos de IoT desarrollados han transformado completamente nuestra infraestructura de
+                        ciudades inteligentes. Increíble innovación."
+                    </blockquote>
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Laura Fernandez"
+                                class="h-12 w-12 rounded-full object-cover ring-4 ring-white shadow-lg">
+                            <div
+                                class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white">
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Laura Fernandez</div>
+                            <div class="text-sm text-gray-500 flex items-center">
+                                <i data-feather="briefcase" class="h-3 w-3 mr-1"></i>
+                                Directora, SmartCity Initiative
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </section>
+
+    <!-- Call to Action with Particle Effect -->
+    <section class="py-24 hero-gradient text-white relative overflow-hidden">
+        <div class="floating-particles" id="ctaParticles"></div>
+        <div class="wave-animation opacity-30"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div data-aos="zoom-in" data-aos-duration="1000">
+                <h2 class="text-4xl md:text-5xl font-black mb-8 glow-text">
+                    ¿Listo para Revolucionar el Futuro? 🚀
+                </h2>
+                <p class="text-xl mb-12 max-w-4xl mx-auto opacity-95 leading-relaxed">
+                    Únete a nuestra comunidad de visionarios y colabora con nuestros proyectos que están redefiniendo
+                    los límites de la tecnología.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <button
+                        class="liquid-button bg-white text-indigo-600 px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all group"
+                        data-aos="fade-right" data-aos-delay="200">
+                        <span class="flex items-center">
+                            💬 Comienza Ahora
+                            <i data-feather="arrow-right"
+                                class="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform"></i>
+                        </span>
+                    </button>
+                    <button
+                        class="liquid-button border-2 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-indigo-600 transition-all group"
+                        data-aos="fade-left" data-aos-delay="300">
+                        <i data-feather="mail" class="inline mr-3 group-hover:scale-125 transition-transform"></i>
+                        Enviar Propuesta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer
+        class="bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 animate-pulse"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="relative">
+                            <i data-feather="cpu" class="h-10 w-10 text-indigo-400 tech-icon"></i>
+                            <div class="pulse-ring absolute inset-0"></div>
+                        </div>
+                        <span class="ml-3 text-2xl font-bold">IIIS</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Instituto de Investigación de Ingeniería de Sistemas - Pioneros en innovación tecnológica y
+                        desarrollo de soluciones del mañana.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="text-gray-400 hover:text-indigo-400 transition-all transform hover:scale-125">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-indigo-400 transition-all transform hover:scale-125">
+                            <i data-feather="twitter" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-indigo-400 transition-all transform hover:scale-125">
+                            <i data-feather="linkedin" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-indigo-400 transition-all transform hover:scale-125">
+                            <i data-feather="youtube" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-indigo-400 transition-all transform hover:scale-125">
+                            <i data-feather="github" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-bold mb-6 text-indigo-300">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">🏠
+                                Inicio</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">🔬
+                                Investigación</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">🚀
+                                Proyectos</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">📚
+                                Publicaciones</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">📞
+                                Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-lg font-bold mb-6 text-indigo-300">Áreas de Expertise</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">🤖
+                                Inteligencia Artificial</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">🛡️
+                                Ciberseguridad</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">☁️
+                                Cloud Computing</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">📊
+                                Big Data</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-white transition-all hover:translate-x-2 transform inline-block">🌐
+                                IoT</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-lg font-bold mb-6 text-indigo-300">Contacto</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start group">
+                            <i data-feather="map-pin"
+                                class="h-5 w-5 text-indigo-400 mr-3 mt-1 group-hover:scale-125 transition-transform"></i>
+                            <span class="text-gray-300 group-hover:text-white transition-colors">Av. Universitaria
+                                1801<br>Lima, Perú</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <i data-feather="mail"
+                                class="h-5 w-5 text-indigo-400 mr-3 group-hover:scale-125 transition-transform"></i>
+                            <span
+                                class="text-gray-300 group-hover:text-white transition-colors">contacto@iiis.edu.pe</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <i data-feather="phone"
+                                class="h-5 w-5 text-indigo-400 mr-3 group-hover:scale-125 transition-transform"></i>
+                            <span class="text-gray-300 group-hover:text-white transition-colors">+51 987 654 321</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        © 2025 Instituto de Investigación de Ingeniería de Sistemas. Developer CAARLOZ.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Política de
+                            Privacidad</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Términos de
+                            Uso</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scrollIndicator').style.transform = `scaleX(${scrolled / 100})`;
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            }
+        });
+
+        // Animated Counter
+        const observerOptions = {
+            threshold: 0.7
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    let current = 0;
+                    const increment = target / 100;
+
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            counter.textContent = Math.ceil(current) + '+';
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target + '+';
+                        }
+                    };
+
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stats-counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Floating Particles
+        function createParticles(containerId, particleCount = 50) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles('particlesContainer');
+        createParticles('ctaParticles', 30);
+
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const container = document.getElementById('matrixRain');
+            if (!container) return;
+
+            const chars = '01';
+            const columns = Math.floor(window.innerWidth / 20);
+
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = i * 20 + 'px';
+                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                column.style.animationDelay = Math.random() * 2 + 's';
+
+                let text = '';
+                for (let j = 0; j < 20; j++) {
+                    text += chars[Math.floor(Math.random() * chars.length)];
+                }
+                column.textContent = text;
+
+                container.appendChild(column);
+            }
+        }
+
+        createMatrixRain();
+
+        // Three.js Background Animation
+        let scene, camera, renderer, particles;
+
+        function initThreeJS() {
+            const canvas = document.getElementById('threeCanvas');
+            if (!canvas) return;
+
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                alpha: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            // Create particle system
+            const geometry = new THREE.BufferGeometry();
+            const particleCount = 1000;
+            const positions = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 10;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            const material = new THREE.PointsMaterial({
+                color: 0x6366f1,
+                size: 0.02,
+                transparent: true,
+                opacity: 0.6
+            });
+
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            camera.position.z = 5;
+
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (particles) {
+                particles.rotation.x += 0.001;
+                particles.rotation.y += 0.002;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Mouse parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.morphing-card');
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardX = (rect.left + rect.width / 2) / window.innerWidth - 0.5;
+                const cardY = (rect.top + rect.height / 2) / window.innerHeight - 0.5;
+
+                const deltaX = (mouseX - cardX) * 10;
+                const deltaY = (mouseY - cardY) * 10;
+
+                card.style.transform = `perspective(1000px) rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
+            });
+        });
+
+        // Initialize Three.js on load
+        window.addEventListener('load', initThreeJS);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (camera && renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+
 </html>

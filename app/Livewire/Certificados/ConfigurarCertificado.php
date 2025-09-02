@@ -14,7 +14,7 @@ class ConfigurarCertificado extends Component
     public function mount(Certificado $certificado)
     {
         $this->certificado = $certificado->load('posicion');
-        
+
         if ($this->certificado->posicion) {
             $this->top = $this->certificado->posicion->top ?? 260;
             $this->left = $this->certificado->posicion->left ?? 400;
@@ -28,8 +28,8 @@ class ConfigurarCertificado extends Component
     public function rules()
     {
         return [
-            'top' => 'required|integer|min:0|max:612',   
-            'left' => 'required|integer|min:0|max:792',  
+            'top' => 'required|integer|min:0|max:612',
+            'left' => 'required|integer|min:0|max:792',
         ];
     }
 
@@ -48,7 +48,7 @@ class ConfigurarCertificado extends Component
         );
 
         session()->flash('message', 'Posición del nombre guardada correctamente.');
-        
+
         // Disparar evento para mostrar modal con PDF
         $this->dispatch('mostrar-preview-modal', [
             'top' => $this->top,
@@ -76,4 +76,5 @@ class ConfigurarCertificado extends Component
         return view('livewire.certificados.configurar-certificado')
             ->layout('layouts.admin');
     }
+
 }

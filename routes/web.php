@@ -3,6 +3,7 @@
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
+use App\Models\Certificado;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $certificadosActivos = Certificado::where('estado', 'activo')->get();
+
+    return view('welcome', compact('certificadosActivos'));
 });
 
 Route::middleware([
