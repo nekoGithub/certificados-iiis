@@ -9,7 +9,7 @@ class ConfigurarCertificado extends Component
 {
     public $certificado;
     public $top, $left;
-    public $nombreCompleto = 'Brayan Sonco Machaca'; // Nombre de ejemplo para vista previa
+    public $nombreCompleto = 'Brayan Sonco Machaca Ejemplo'; // Nombre de ejemplo para vista previa
 
     public function mount(Certificado $certificado)
     {

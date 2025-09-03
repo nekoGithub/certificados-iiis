@@ -735,15 +735,43 @@
                     </p>
                 </div>
 
-                <form action="/generar-certificado" method="POST"
+                <form action="{{ route('certificados.estudiantepreviewPDF', $certificado->id) }}" method="POST"
                     class="bg-white shadow-xl rounded-2xl p-8 space-y-6" data-aos="fade-up">
                     <!-- Nombre -->
+                    @csrf
                     <div>
-                        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre del
-                            Participante</label>
-                        <input type="text" id="nombre" name="nombre" required
+                        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombres</label>
+                        <input type="text" id="nombre" name="nombres" required
                             class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3"
                             placeholder="Ej: Juan Alcachofa" />
+                    </div>
+
+                    <div>
+                        <label for="apellidos" class="block text-sm font-medium text-gray-700">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" required
+                            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3"
+                            placeholder="Apellidos completos" />
+                    </div>
+
+                    <div>
+                        <label for="ci" class="block text-sm font-medium text-gray-700">Carnet</label>
+                        <input type="text" id="ci" name="ci" required
+                            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3"
+                            placeholder="Número de carnet" />
+                    </div>
+
+                    <div>
+                        <label for="correo" class="block text-sm font-medium text-gray-700">Correo</label>
+                        <input type="text" id="correo" name="email" required
+                            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3"
+                            placeholder="ejemplo@gmail.com" />
+                    </div>
+
+                    <div>
+                        <label for="telefono" class="block text-sm font-medium text-gray-700"Número celular</label>
+                        <input type="text" id="telefono" name="telefono" required
+                            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3"
+                            placeholder="ej: 78888888" />
                     </div>
 
                     <!-- Curso -->
@@ -757,7 +785,7 @@
                     <!-- Fecha -->
                     <div>
                         <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha de Emisión</label>
-                        <input type="date" id="fecha" name="fecha" required disabled
+                        <input type="date" id="fecha" name="fecha_emision" required disabled
                             class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3" />
                     </div>
 
@@ -766,14 +794,6 @@
                     </script>
 
 
-                    {{-- <!-- Instructor -->
-                <div>
-                    <label for="instructor" class="block text-sm font-medium text-gray-700">Nombre del
-                        Instructor</label>
-                    <input type="text" id="instructor" name="instructor"
-                        class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3" />
-                </div> --}}
-
                     <!-- Botón -->
                     <div class="text-center">
                         <button type="submit"
@@ -781,10 +801,22 @@
                             Generar Certificado
                         </button>
                     </div>
+
+
+
+
                 </form>
             </div>
         </section>
     @endforeach
+
+    {{-- <div class="mt-6 space-y-2">
+                <a href="{{ route('admin.certificados.preview-pdf', $certificado->id) }}?nombre_estudiante={{ urlencode($nombreCompleto) }}&top={{ $top ?? 260 }}&left={{ $left ?? 400 }}"
+                    target="_blank"
+                    class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded">
+                    Ver PDF de Prueba
+                </a>
+            </div> --}}
 
 
 
@@ -1064,6 +1096,25 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if (session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: '{{ session('success') }}',
+            confirmButtonColor: '#3085d6'
+        });
+    @elseif (session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: '{{ session('error') }}',
+            confirmButtonColor: '#d33'
+        });
+    @endif
+</script>
+
     <script>
         // Initialize AOS
         AOS.init({
@@ -1276,6 +1327,8 @@
             }, 100);
         });
     </script>
+
+
 </body>
 
 </html>

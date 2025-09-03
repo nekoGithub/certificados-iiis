@@ -35,3 +35,6 @@ Route::get('/certificados/{certificado}/generar-pdf', [CertificadoController::cl
 Route::get('/certificados/{certificado}/preview-pdf', [CertificadoController::class, 'previewPDF'])
     ->name('certificados.preview-pdf');
 
+// Route::post('/certificados/{id}/estudiantePreview-pdf', [CertificadoController::class, 'estudiantepreviewPDF'])
+//     ->name('certificados.estudiantepreviewPDF');
+

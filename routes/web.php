@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificadoController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsuarioController;
@@ -49,3 +50,5 @@ Route::controller(EstudianteController::class)->middleware('auth')->group(functi
 });
 
 Route::resource('/roles', RoleController::class)->names('roles');
+Route::post('/certificados/{id}/estudiantePreview-pdf', [CertificadoController::class, 'estudiantepreviewPDF'])
+    ->name('certificados.estudiantepreviewPDF');
